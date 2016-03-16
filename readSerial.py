@@ -5,8 +5,8 @@ import time
 import sys
 
 def valid(s):
-  if len(s) != 55:
-		return False
+	if len(s) != 55:
+  		return False
 	if s[0]!='7e' or s[54]!='7e':
 		return False
 	if s[1]!='45' or s[2]!='00':
