@@ -76,8 +76,13 @@ CREATE EVENT IF NOT EXISTS e_test
   ON COMPLETION PRESERVE
 DO CALL test();
 
+# 查看event是否开启: 
+SHOW VARIABLES LIKE '%sche%';
+# 将事件计划开启
 SET GLOBAL event_scheduler=1;
+# 关闭事件任务
 ALTER EVENT e_test ON COMPLETION PRESERVE DISABLE;
+# 开启事件任务
 ALTER EVENT e_test ON COMPLETION PRESERVE ENABLE;
 
 # zigbee_MapGIS
