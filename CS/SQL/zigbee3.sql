@@ -66,10 +66,12 @@ BEGIN
 END $$
 delimiter ;
 
+delimiter $$
 CREATE PROCEDURE test()
 BEGIN
   DELETE FROM Max30 WHERE MTime < date_sub(sysdate(),interval 30 minute);
-END;
+END $$
+delimiter ;
 
 CREATE EVENT IF NOT EXISTS e_test
   ON SCHEDULE EVERY 30 SECOND
