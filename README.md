@@ -1,2 +1,2 @@
 # readSerial
-Python scripts reading serial
+Scripts reading serial
