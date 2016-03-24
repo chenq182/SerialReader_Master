@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <style type="text/css">
+            html, body, #allmap {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                margin: 0;
+            }
+            .anchorBL {
+                display: none;
+            }
+        </style>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+        <script type="text/javascript" src="scriptNodeNet.js" charset="gbk"></script>
+<title>节点定位</title>
+    </head>
+    <body>
+        <div id="allmap"></div>
+    </body>
+</html>
+<script type="text/javascript">
+    var map = new BMap.Map("allmap");
+    var menu = new BMap.ContextMenu();
+    map.addContextMenu(menu);
+    var menuItem_Now = new BMap.MenuItem("实时(/5s)", shiftTime);
+    var menuItem_Offline = new BMap.MenuItem("断线阈值: 30s", shiftOffline);
+    var menuItem_MapType = new BMap.MenuItem("普通视图", shiftMapType);
+    loadMap();
+    var lineColor = "blue";
+    var history;//Date format
+    var interval = 5;//(seconds) 0 for a static view
+    var offLine = 30;//(seconds)
+    var timer = window.setInterval(watchNow, interval * 1000);
+</script>
